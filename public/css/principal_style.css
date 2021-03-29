@@ -1,0 +1,84 @@
+html{
+    height: 100%;
+}
+body{
+    background-color: #EFEFEF;
+    height: 100%;
+}
+body > .container{
+    min-height: calc(100% - 114px);
+}
+footer{
+    clear: both;
+    position: relative;
+    bottom: 0;
+}
+.parent-content{
+    margin: 3% auto ;
+}
+.fancy-content {
+    display: block;
+    padding: 4%;
+    background-color: white;
+
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.article-content{
+    border-bottom: 1px solid #f0f0f0;
+}
+.article-text{
+    border-left: solid #FFC300 1px;
+}
+.hiddenField{
+    display: none;
+}
+ul li:hover{
+    border-bottom: solid #FFC300 1px;
+}
+ul li{
+    border-top: solid transparent 1px;
+}
+ul li.active{
+    font-weight: bold;
+    border-top: solid #FFC300 1px;
+}
+ul li.user-span{
+    background-color: #FFC300;
+    color: #fff;
+    margin-left: 20px;
+}
+.article-list a{
+    cursor: pointer;
+}
+.article-list a.active{
+    background-color: #FFC300;
+    border-color: #FFC300;
+}
+.btn-green{
+    color: #FFF;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+.btn-green:hover{
+    color: #FFF;
+    background-color: #1DA085;
+    border-color: #1DA085;
+}
+.auth-btn{
+    border: solid #FFC300 1px;
+    margin: 0 0 0 10px;
+}
+.article img{
+    width: 50vw; /* You can set the dimensions to whatever you want */
+    object-fit: cover;
+    padding: 2%;
+}
+.text-justify {
+    text-align: justify;
+}

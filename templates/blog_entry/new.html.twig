@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BlogEntry{% endblock %}
+
+{% block body %}
+    <div class="row" >
+        <div class="col parent-content">
+            <div class="fancy-content">
+                <div class="form-row">
+                    <h1>Create new Blog Entry</h1>
+
+                    {{ include('blog_entry/_form.html.twig') }}
+                    <a href="{{ path('show_entries') }}" class="btn btn-dark">back to list</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

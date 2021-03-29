@@ -1,0 +1,22 @@
+Colors
+    https://colorhunt.co/palette/7247
+
+
+    -   to connect php8 in local: D:\xampp\php\php.exe
+    -   connect my database: DATABASE_URL="mysql://root:@127.0.0.1:3306/pp_blog_symfony?serverVersion=5.7"
+    -   to connect entities from database D:\xampp\php\php.exe bin/console doctrine:mapping:import App\Entity annotation --path=src/Entity
+    -   to regenerate entities D:\xampp\php\php.exe bin/console make:entity --regenerate App
+    -   clear cache D:\xampp\php\php.exe bin/console cache:clear --env prod
+    -   composer problem php version: curl -sS https://getcomposer.org/installer | D:\xampp\php\php.exe -- --install-dir=D:\xampp\php --filename=composer
+    -   Install annotations D:\xampp\php\php.exe composer.phar require annotations
+    CRUD:
+        -   D:\xampp\php\php.exe bin/console make:crud
+    Menu:
+        -   D:\xampp\php\php.exe composer.phar require knplabs/knp-menu-bundle
+    server:
+
+        set APP_ENV=prod
+        set APP_DEBUG=0
+
+        D:\xampp\php\php.exe bin/console clear:cache
+        D:\xampp\php\php.exe composer.phar require symfony/intl

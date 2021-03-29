@@ -1,2 +1,9 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+
+fos_ck_editor:
+    default_config: my_config
+    configs:
+        my_config:
+            toolbar: [ ["Source", "-", "Save"], "/", ["Anchor"], "/", ["Maximize"] ]
+            uiColor: "#000000"

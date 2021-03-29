@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block body %}
+    <div class="row" >
+        <div class="col parent-content">
+            <div class="fancy-content">
+                <div class="form-row">
+                    <h1>Sign Up</h1>
+
+                    {{ include('user/_form.html.twig') }}
+                    {# <a href="{{ path('user_index') }}" class="btn btn-dark float-end">back to list</a> #}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+
+    <div class="row" >
+        <div class="col">
+            <div class="row parent-content" >
+                <b style="color:#8d8d8d">Symfony</b>
+                <h1 style="margin-bottom: 40px"><i class="fab fa-symfony">&nbsp;</i>Blog Symfony 5</h1>
+                <div class="col-3">
+                    <div class="article-list">
+                        <div class="list-group">
+                            {% for blog_entry in blog_entries %}
+                                <a id="article{{ blog_entry.id }}" onclick="getArticle({{ blog_entry.id }})" class="list-group-item list-group-item-action">{{ blog_entry.title }}</a>
+                            {% else %}
+                                <h2 class="mt-4">no records found</h2>
+                            {% endfor %}
+                            {% if app.user %}
+                                <a class="btn btn-green" href="{{ path('blog_entry_new') }}">
+                                    <i class="far fa-plus-square"></i>
+                                    Add New Entry
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="fancy-content">
+                        <div class="form-row article-content">
+                            {% if blog_entries is empty  %}
+                                <h2 class="mt-4">
+                                    no records found
+                                    {% if app.user %}
+                                        <a class="btn btn-green float-end" href="{{ path('blog_entry_new') }}">
+                                            <i class="far fa-plus-square"></i>
+                                            Add New Entry
+                                        </a>
+                                    {% endif %}
+                                </h2>
+                            {% else %}
+                                <div id="article-show">&nbsp;
+
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function getArticle(id){
+            $(".list-group a").removeClass('active');
+            $(`#article${id}`).addClass('active');
+
+            $.ajax({
+                type:'POST',
+                url: "{{ path('entry_show') }}",
+                data: {id: id, current_user : {{ current_user }} },
+                success: function(response) {
+                    $('#article-show').html(response);
+                }});
+            return false;
+        }
+
+        $( document ).ready(function (){
+            $(".list-group").find("[id^='article']").first().addClass("active").click();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block body %}
+    <div class="row" >
+        <div class="col parent-content">
+            <div class="fancy-content" style="width: 50%; margin: auto">
+                <div class="form-row">
+                    <h1>Sign Up</h1>
+
+                    {# If there are any errors on the form, display them #}
+                    {% set formErrors = registrationForm.vars.errors.form.getErrors(true) %}
+                    {% if formErrors|length %}
+                        <div class="alert alert-danger">
+                            <ul>
+                                {% for error in formErrors %}
+                                    <li>{{ error.message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    {# Render the Form #}
+                    {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.firstname) }}
+                    {{ form_row(registrationForm.lastname) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.password) }}
+                    <div class="hiddenField">
+                        {{ form_row(registrationForm.createAt) }}
+                        {{ form_row(registrationForm.status) }}
+                        {{ form_row(registrationForm.photo) }}
+                    </div>
+                    <br>
+                    <button class="btn btn-success">Register</button>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

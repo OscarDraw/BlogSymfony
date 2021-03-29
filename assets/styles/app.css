@@ -1,0 +1,13 @@
+div.signup-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+div.signup-content div {
+    width: 40%;
+    height: auto;
+}
+.hidden{
+    display: none;
+}

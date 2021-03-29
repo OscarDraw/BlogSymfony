@@ -1,0 +1,31 @@
+{% block body %}
+    <div class="container article">
+        {% if blog_entry.createBy.getId() == current_user %}
+            <a class="btn btn-dark float-end" href="{{ path('blog_entry_edit', {'id': blog_entry.id}) }}"><i class="fas fa-edit"></i></a>
+        {% endif %}
+        <div id="article-show">
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <!-- default-meme.jpg -->
+                <img class="img-fluid rounded"
+                     src="{{ asset("uploads/blogImages/" ~ blog_entry.image) }}"
+                     onerror="this.src='{{ asset("images/default.png") }}'"
+                     alt="{{ blog_entry.title }} Image">
+                <small style="color: red">{{ blog_entry.image ? '' : 'Image not found' }}</small>
+            </div>
+            <div class="col-lg-1">&nbsp;</div>
+            <div class="col-lg-7 article-text">
+                <h3 class="mt-4">{{ blog_entry.title }}</h3>
+                <small style="color:rgba(143,143,143,0.8)">
+                    <i class="fa fa-user"></i>&nbsp; {{ blog_entry.createBy }}&nbsp;&nbsp;
+                    <i class="fa fa-calendar"></i>&nbsp; {{ blog_entry.createAt ? blog_entry.createAt|date('F jS \\a\\t g:ia') : ''  }}
+                </small>
+                <br><br>
+                <p class="font-weight-light text-justify" style="color:rgba(76,76,76,0.8)">
+                    {{ blog_entry.content }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+    {# If there are any errors on the form, display them #}
+    {% set formErrors = form.vars.errors.form.getErrors(true) %}
+    {% if formErrors|length %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for error in formErrors %}
+                    <li>{{ error.message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {{ form_row(form.title) }}
+    {{ form_row(form.content) }}
+
+    {% if form.vars.value.image is defined %}
+        <br>
+        <div style="text-align: center">
+            <img class="img-fluid rounded"
+                 src="{{ asset("uploads/blogImages/" ~ form.vars.value.image) }}"
+                 onerror="this.src='{{ asset("images/default.png") }}'"/><br>
+            <small>{{ form.vars.value.image }}</small>
+        </div>
+        <br>
+    {% endif %}
+
+    {{ form_row(form.image) }}
+    <div class="hiddenField">
+        {{ form_row(form.deleted) }}
+        {{ form_row(form.createAt) }}
+        {{ form_row(form.createBy) }}
+    </div>
+    <br>
+    <button class="btn btn-success float-end">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
