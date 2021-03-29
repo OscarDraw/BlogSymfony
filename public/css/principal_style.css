@@ -6,7 +6,7 @@ body{
     height: 100%;
 }
 body > .container{
-    min-height: calc(100% - 114px);
+    min-height: calc(100% - 113px);
 }
 footer{
     clear: both;
