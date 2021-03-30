@@ -1,7 +1,7 @@
 {% block body %}
     <div class="container article">
         {% if blog_entry.createBy.getId() == current_user %}
-            <a class="btn btn-dark float-end" href="{{ path('blog_entry_edit', {'id': blog_entry.id}) }}"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-dark float-end" href="{{ path('blog_entry_edit', {'id': blog_entry.id}) }}" title="Edit entry"><i class="fas fa-edit"></i></a>
         {% endif %}
         <div id="article-show">
         </div>

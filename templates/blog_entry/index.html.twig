@@ -3,32 +3,32 @@
 {% block title %}BlogEntry index{% endblock %}
 
 {% block body %}
-    <h1>BlogEntry index</h1>
+    <h1>My entries</h1>
 
-    <table class="table">
+    <table  class="table table-condensed table-bordered table-striped table-hover table-responsive avi">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Content</th>
                 <th>Image</th>
-                <th>Deleted</th>
-                <th>CreateAt</th>
-                <th>actions</th>
+                <th>Create at</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for blog_entry in blog_entries %}
             <tr>
-                <td>{{ blog_entry.id }}</td>
                 <td>{{ blog_entry.title }}</td>
                 <td>{{ blog_entry.content }}</td>
-                <td>{{ blog_entry.image }}</td>
-                <td>{{ blog_entry.deleted ? 'Yes' : 'No' }}</td>
+                <td>
+                    <img class="img-fluid rounded"
+                         src="{{ asset("uploads/blogImages/" ~ blog_entry.image) }}"
+                         onerror="this.src='{{ asset("images/default.png") }}'"
+                         alt="{{ blog_entry.title }} Image" width="200px">
+                </td>
                 <td>{{ blog_entry.createAt ? blog_entry.createAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('blog_entry_show', {'id': blog_entry.id}) }}">show</a>
-                    <a href="{{ path('blog_entry_edit', {'id': blog_entry.id}) }}">edit</a>
+                    <a class="btn btn-dark float-end" href="{{ path('blog_entry_edit', {'id': blog_entry.id}) }}" title="Edit entry"><i class="fas fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('blog_entry_new') }}">Create new</a>
+    <a class="btn btn-green" href="{{ path('blog_entry_new') }}">
+        <i class="far fa-plus-square"></i>
+        Add New Entry
+    </a>
 {% endblock %}

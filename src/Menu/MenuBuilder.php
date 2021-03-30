@@ -42,14 +42,21 @@ class MenuBuilder
 
         if (isset($user) && !is_string($user)) {
             $menu->addChild('Welcome '.$user->getFirstName(), ['route' => "index"]);
+
             $menu['Welcome '.$user->getFirstName()]
                 ->setLinkAttribute('class', 'nav-link')
                 ->setAttribute('class', 'nav-item auth-btn user-span');
+
+            $menu->addChild('My Entries', ['route' => "blog_entry_index"]);
+            $menu['My Entries']
+                ->setLinkAttribute('class', 'nav-link')
+                ->setAttribute('class', 'nav-item auth-btn ');
 
             $menu->addChild('Logout', ['route' => "app_logout"]);
             $menu['Logout']
                 ->setLinkAttribute('class', 'nav-link')
                 ->setAttribute('class', 'nav-item auth-btn ');
+
         } else {
             $menu->addChild('Login', ['route' => "app_login"]);
             $menu['Login']

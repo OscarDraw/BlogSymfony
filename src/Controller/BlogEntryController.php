@@ -18,9 +18,16 @@ class BlogEntryController extends AbstractController
     #[Route('/', name: 'blog_entry_index', methods: ['GET'])]
     public function index(): Response
     {
-        $blogEntries = $this->getDoctrine()
-            ->getRepository(BlogEntry::class)
-            ->findAll();
+
+        if($this->getUser()){
+            $blogEntries = $this->getDoctrine()
+                ->getRepository(BlogEntry::class)
+                ->findBy(['createBy' => $this->getUser()->getId()]);
+        }else{
+            $blogEntries = $this->getDoctrine()
+                ->getRepository(BlogEntry::class)
+                ->findAll();
+        }
 
         return $this->render('blog_entry/index.html.twig', [
             'blog_entries' => $blogEntries,

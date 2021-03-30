@@ -5,21 +5,81 @@
 {% block body %}
     <div class="row" >
         <div class="col parent-content">
-            <div class="fancy-content">
+            <div class="fancy-content" style="width: 80%; margin: auto">
                 <div class="form-row">
                     <b style="color:#FFC300">Symfony</b>
                     <h1><i class="fab fa-symfony">&nbsp;</i>Blog Symfony 5</h1>
                     <h3>Welcome to my blog</h3>
-                    <br><br>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',
-                        making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
-                        and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
-                        Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-
+                    <div class="row" style="padding: 5% 0;">
+                        <div class="col">
+                            <img class="img-fluid rounded"
+                                 src="{{ asset("images/develop.jpg") }}"
+                                 alt="Index Image" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="row" style="padding: 5% 0;">
+                        <div class="col">
+                            <h4>It is a simple symfony blog using a loremp impsum generator with text like: </h4>
+                            <p>
+                                <blockquote>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                    ever since the 1500s, when an unknown printer took a galley of type
+                                    and scrambled it to make a type specimen book. It has survived not
+                                    only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages,
+                                    and more recently with desktop publishing software like Aldus PageMaker
+                                    including versions of Lorem Ipsum.
+                                </blockquote>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row index-pad"  style="background-color: #F0FFFF;">
+                        <div class="col-5">
+                            <img class="img-fluid rounded"
+                                 src="{{ asset("images/mokup1.jpg") }}"
+                                 alt="Index Image" style="width: 100%;">
+                        </div>
+                        <div class="col"></div>
+                        <div class="col-6 align-self-center">
+                            <h4>You can visit my blog: </h4>
+                            <p class="font-weight-light" >Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                                text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book. It has survived not only five
+                                centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                            </p>
+                            <div style="text-align: center">
+                                <a class="btn btn-dark" href="{{ path('show_entries') }}"><i class="fas fa-blog"></i> &nbsp;Go to my blog!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row index-pad"  style="background-color: #FFFFF0;">
+                        <div class="col-6 align-self-center">
+                            <h4>you can create and edit your own blog entries with text: </h4>
+                            <p class="font-weight-light" >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Aliquam aliquam odio augue. Duis consectetur ligula sit amet diam egestas aliquet.
+                                Sed rutrum porttitor lobortis. Praesent in efficitur ipsum. Phasellus id rutrum dui.
+                                Mauris tristique sed justo sit amet congue. Vivamus consequat non orci ac consectetur.
+                                Nullam accumsan egestas dui commodo ultricies. Duis ut mi at ante tristique vehicula quis eget ligula.
+                            </p>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col-5">
+                            <img class="img-fluid rounded"
+                                 src="{{ asset("images/mokup2.jpg") }}"
+                                 alt="Index Image" style="width: 100%;">
+                        </div>
+                    </div>
                 </div>
-                <div style="text-align: center">
-                    <a class="btn btn-dark" href="{{ path('show_entries') }}"><i class="fas fa-blog"></i> &nbsp;Go to my blog!</a>
+            </div>
+
+            <div class="row index-pad"  style="background-color: #3CB371;width: 80%; margin: auto;">
+                <div class="col align-self-center text-center">
+                    <h2>Get started now</h2>
+                    <br>
+                    <a class="btn btn-light" href="{{ path('register') }}" style="width: 50%;">Register</a>
                 </div>
             </div>
         </div>
